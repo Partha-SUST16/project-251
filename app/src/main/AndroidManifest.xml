@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.koushik.health_kit">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/health_kit_mipmap"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/health_kit_mipmap"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/MapApiKey" />
+
+        <activity
+            android:name=".splashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".BmiCalculator" />
+        <activity android:name=".DiabetesCalculator" />
+        <activity android:name=".PatientLogin" />
+        <activity android:name=".UserCatagory" />
+        <activity android:name=".PatientSignup" />
+        <activity android:name=".PatientProfile" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".DoctorLogin" />
+        <activity android:name=".DoctorSignup" />
+        <activity android:name=".DoctorProfile" />
+        <activity android:name=".Emergency" />
+        <activity
+            android:name=".EmergencyMapsActivity"
+            android:label="@string/title_activity_emergency_maps" />
+        <activity android:name=".SearchDoctor" />
+        <activity android:name=".DoctorProfileFromPatient" />
+        <activity android:name=".DoctorScheduleEdit" />
+        <activity android:name=".DoctorScheduleDaySelection" />
+        <activity android:name=".DoctorScheduleCheck" />
+        <activity android:name=".DoctorScheduleWeek" />
+        <activity android:name=".SetPrescription" />
+        <activity android:name=".MyPrescriptionList" />
+        <activity android:name=".MyPrescription" />
+        <activity android:name=".AboutUs"></activity>
+    </application>
+
+</manifest>

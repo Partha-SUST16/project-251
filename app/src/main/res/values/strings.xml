@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Health Kit</string>
+    <string name="Open">open</string>
+    <string name="Close">Close</string>
+    <string name="MapApi">AIzaSyC0TNYjVlSvcqgvyGniVxS92yO3lHK1daY</string>
+    <string name="MapApiKey">AIzaSyBg_DDx-7UJJ3SB3ORoAHhez4HTXyGaCJg</string>
+    <string name="title_activity_emergency_maps">Map</string>
+
+    <string-array name="Week">
+        <item> Saturday </item>
+        <item> Sunday </item>
+        <item> Monday </item>
+        <item> Tuesday </item>
+        <item> Wednesday </item>
+        <item> Thursday </item>
+        <item> Friday </item>
+
+    </string-array>
+</resources>
