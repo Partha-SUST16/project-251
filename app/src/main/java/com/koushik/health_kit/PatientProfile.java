@@ -60,13 +60,15 @@ public class PatientProfile extends AppCompatActivity {
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
                     Intent intent = new Intent(getApplicationContext(),MyPrescriptionList.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    //startActivity(intent);
 
                 }
                 else if(id == R.id.menuSearchbtnId)
                 {
                     Intent intent = new Intent(getApplicationContext(),SearchDoctor.class);
-                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    //startActivity(intent);
                 }
                 else if(id==R.id.menuDiabetesbtnId)
                 {
@@ -88,7 +90,8 @@ public class PatientProfile extends AppCompatActivity {
                 }
                 else if(id==R.id.menuEmergencybtnId)
                 {
-                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
 
                 return true;

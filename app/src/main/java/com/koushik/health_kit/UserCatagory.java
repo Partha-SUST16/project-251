@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class UserCatagory extends AppCompatActivity {
 
@@ -59,7 +60,8 @@ public class UserCatagory extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
-                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }

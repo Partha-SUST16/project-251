@@ -67,7 +67,8 @@ public class DoctorScheduleDaySelection extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
-                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }
