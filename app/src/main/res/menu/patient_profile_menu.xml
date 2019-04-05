@@ -2,8 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuEmergencybtnId"
-        android:title="Emergency"
+    android:id="@+id/menuEmergencybtnId"
+    android:title="Emergency"
+    android:icon="@drawable/ic_account_circle_coloured_24dp">
+
+</item>
+    <item
+        android:id="@+id/recentButtonId"
+        android:title="Recent Doctors"
         android:icon="@drawable/ic_account_circle_coloured_24dp">
 
     </item>

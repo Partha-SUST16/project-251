@@ -58,41 +58,47 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.menuBMIbtnId) {
-                    Toast.makeText(DoctorProfileFromPatient.this, "BMI CLICKED", Toast.LENGTH_SHORT).show();
-                    Intent intent1 = new Intent(getApplicationContext(), BmiCalculator.class);
+                if(id==R.id.menuBMIbtnId)
+                {
+                    Toast.makeText(getApplicationContext(),"BMI CLICKED",Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(getApplicationContext(),BmiCalculator.class);
                     startActivity(intent1);
                 }
-                else if (id == R.id.menuPrescriptionbtnId)
+                else if(id == R.id.menuPrescriptionbtnId)
                 {
-                    startActivity(new Intent(getApplicationContext(), MyPrescriptionList.class));
+                    startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
-                else if (id == R.id.menuSearchbtnId)
+                else if(id == R.id.menuSearchbtnId)
                 {
-                    Intent intent = new Intent(getApplicationContext(), SearchDoctor.class);
+                    Intent intent = new Intent(getApplicationContext(),SearchDoctor.class);
                     startActivity(intent);
                 }
-                else if (id == R.id.menuDiabetesbtnId)
+                else if(id==R.id.menuDiabetesbtnId)
                 {
-                    Toast.makeText(DoctorProfileFromPatient.this, "Diabetes CLICKED", Toast.LENGTH_SHORT).show();
-                    Intent intent2 = new Intent(getApplicationContext(), DiabetesCalculator.class);
+                    Toast.makeText(getApplicationContext(),"Diabetes CLICKED",Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(getApplicationContext(),DiabetesCalculator.class);
                     startActivity(intent2);
                 }
-                else if (id == R.id.menuAboutustnId)
+                else if(id==R.id.menuAboutustnId)
                 {
-                    Toast.makeText(DoctorProfileFromPatient.this, "About Us CLICKED", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getApplicationContext(), AboutUs.class));
+                    Toast.makeText(getApplicationContext(),"About Us CLICKED",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(),AboutUs.class));
                 }
-                else if (id == R.id.menuLogoutbtnId)
+                else if(id==R.id.menuLogoutbtnId)
                 {
-                    Toast.makeText(DoctorProfileFromPatient.this, "Log Out Clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Log Out Clicked",Toast.LENGTH_SHORT).show();
                     finish();
                     patientAuth.signOut();
                 }
-                else if (id == R.id.menuEmergencybtnId)
+                else if(id == R.id.menuEmergencybtnId)
                 {
-                    startActivity(new Intent(getApplicationContext(), EmergencyMapsActivity.class));
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
+                else if(id == R.id.recentButtonId)
+                {
+                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                }
+
                 return true;
             }
         });

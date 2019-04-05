@@ -17,6 +17,8 @@
         android:roundIcon="@drawable/health_kit_mipmap"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".RecentDoctors"></activity>
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -59,7 +61,7 @@
         <activity android:name=".SetPrescription" />
         <activity android:name=".MyPrescriptionList" />
         <activity android:name=".MyPrescription" />
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".AboutUs" />
     </application>
 
 </manifest>

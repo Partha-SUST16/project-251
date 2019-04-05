@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +34,8 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
     private DatabaseReference patientReference;
     private FirebaseAuth patientAuth;
     private FirebaseAuth.AuthStateListener patientAuthListener;
+    private String patientID;
+    private DatabaseReference paID;
     String Day;
     String doctorUID ;
     //we are storing all the products in a list
@@ -167,7 +171,18 @@ public class DoctorScheduleCheckCardviewadapter extends RecyclerView.Adapter<Doc
                                     Toast.makeText(mCtx,"Reservation Done",Toast.LENGTH_SHORT).show();
                                     int pos= position;
                                     String posStr = Integer.toString(pos);
+                        /////////////////////////////////////////////////////////
+                                    try{
+                                        patientID = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
 
+                                    FirebaseDatabase.getInstance().getReference().child("Patients")
+                                            .child(patientID).child("Recents").
+                                            child(doctorUID).setValue(doctorUID);
+
+
+                                    }catch (Exception e){
+                                        Toast.makeText(mCtx,"Some Error Occuerd",Toast.LENGTH_SHORT).show();
+                                    }
                                     if(!Day.equals(null))
                                     {
                                         Log.d(TAG, "MyPATH: "+"Doctors "+doctorUID+" schedule "+Day+" "+product.patientNo+" availavle");

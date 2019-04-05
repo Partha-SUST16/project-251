@@ -102,6 +102,10 @@ public class SearchDoctor extends AppCompatActivity {
                 {
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
+                else if(id == R.id.recentButtonId)
+                {
+                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                }
 
                 return true;
             }
@@ -227,11 +231,6 @@ public class SearchDoctor extends AppCompatActivity {
 
 
     }
-
-
-
-
-
 
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override

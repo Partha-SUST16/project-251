@@ -8,35 +8,43 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PatientProfile extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RecentDoctors extends AppCompatActivity {
+
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    List<SearchDoctorCardview> doctorList;
+    private String key;
+
+    //the recyclerview
+    RecyclerView recyclerView;
+    SearchDoctorCardviewadapter adapter;
+    DatabaseReference doctorDatabaseReference;
 
     private FirebaseAuth patientAuth;
     private FirebaseAuth.AuthStateListener patientAuthListener;
-    private DatabaseReference patientReference;
 
-    private TextView patientname,patientage,patientarea,patientblood,patientemail,patientgender,patientphone;
-
+    private DatabaseReference patientReference,doctorReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_profile);
+        setContentView(R.layout.activity_recent_doctors);
+
         drawerLayout = (DrawerLayout) findViewById(R.id.ppDrawerId);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.Open,R.string.Close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -44,6 +52,10 @@ public class PatientProfile extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        patientReference = FirebaseDatabase.getInstance().getReference().child("Patients");
+        doctorReference = FirebaseDatabase.getInstance().getReference().child("Doctors");
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.ppNavigationViewId);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -53,7 +65,7 @@ public class PatientProfile extends AppCompatActivity {
 
                 if(id==R.id.menuBMIbtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"BMI CLICKED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RecentDoctors.this,"BMI CLICKED",Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(getApplicationContext(),BmiCalculator.class);
                     startActivity(intent1);
                 }
@@ -68,28 +80,24 @@ public class PatientProfile extends AppCompatActivity {
                 }
                 else if(id==R.id.menuDiabetesbtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"Diabetes CLICKED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RecentDoctors.this,"Diabetes CLICKED",Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(getApplicationContext(),DiabetesCalculator.class);
                     startActivity(intent2);
                 }
                 else if(id==R.id.menuAboutustnId)
                 {
-                    Toast.makeText(getApplicationContext(),"About Us CLICKED",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RecentDoctors.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),AboutUs.class));
                 }
                 else if(id==R.id.menuLogoutbtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"Log Out Clicked",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RecentDoctors.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
                     finish();
                     patientAuth.signOut();
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
-                }
-                else if(id == R.id.recentButtonId)
-                {
-                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;
@@ -98,50 +106,24 @@ public class PatientProfile extends AppCompatActivity {
 
         ///Drawer & NavigationBar ends.
 
+
+
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        //initializing the productlist
+        doctorList = new ArrayList<>();
+
+        //creating recyclerview adapter
+        adapter = new SearchDoctorCardviewadapter(this, doctorList);
+
+        //setting adapter to recyclerview
+        recyclerView.setAdapter(adapter);
         patientAuth = FirebaseAuth.getInstance();
-        String CurrentUser = patientAuth.getCurrentUser().getUid();
-        patientReference = FirebaseDatabase.getInstance().getReference().child("Patients").child(CurrentUser);
-        String patientUid  = patientReference.getKey();
-        patientReference.child("patientUid").setValue(patientUid);
-
-
-        patientname = (TextView) findViewById(R.id.patientName);
-        patientage = (TextView) findViewById(R.id.patientAge);
-        patientgender = (TextView) findViewById(R.id.patientGender);
-        patientarea = (TextView) findViewById(R.id.patientArea);
-        patientblood = (TextView) findViewById(R.id.patientBlood);
-        patientphone = (TextView) findViewById(R.id.patientPhone);
-        patientemail = (TextView) findViewById(R.id.patientEmail);
-
-        patientReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
-                    String myname = dataSnapshot.child("name").getValue().toString();
-                    String myage = dataSnapshot.child("age").getValue().toString();
-                    String mygender = dataSnapshot.child("gender").getValue().toString();
-                    String myblood = dataSnapshot.child("blood").getValue().toString();
-                    String myarea = dataSnapshot.child("area").getValue().toString();
-                    String myphone = dataSnapshot.child("phone").getValue().toString();
-                    String myemail = dataSnapshot.child("email").getValue().toString();
-
-                    patientname.setText("Name:\t"+myname);
-                    patientage.setText("Age:\t"+myage);
-                    patientblood.setText("Blood Group:\t"+myblood);
-                    patientgender.setText("Gender:\t"+mygender);
-                    patientarea.setText("Area:\t"+myarea);
-                    patientphone.setText("Phone No:\t"+myphone);
-                    patientemail.setText("Email Address:\t"+myemail);
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
         patientAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -150,9 +132,37 @@ public class PatientProfile extends AppCompatActivity {
                 }
             }
         };
+        addToList();
+
+
     }
 
-    @Override
+    private void addToList()
+    {
+        patientReference = patientReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid().toString())
+                .child("Recents");
+        doctorList.clear();
+        patientReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    key = ds.getValue(String.class);
+                    seeInDoctor();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void seeInDoctor(){
+        //doctorReference = doctorReference.child(key);
+        Log.d("Test",key);
+        doctorReference.child(key).addListenerForSingleValueEvent(valueEventListener);
+    }
     protected void onStart() {
         super.onStart();
         patientAuth.addAuthStateListener(patientAuthListener);
@@ -171,8 +181,30 @@ public class PatientProfile extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
+            startActivity(new Intent(getApplicationContext(),PatientProfile.class));
             //super.onBackPressed();
         }
     }
+    ValueEventListener valueEventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            //doctorList.clear();
+            if (dataSnapshot.exists()) {
+                //for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    /*if(snapshot.getKey().equals(key)) {*/
+                        Log.d("Main test ",dataSnapshot.getKey());
+                        SearchDoctorCardview doctor = dataSnapshot.getValue(SearchDoctorCardview.class);
+                        doctorList.add(doctor);
+                   // }
+                //}
+                adapter.notifyDataSetChanged();
+            }
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+
+        }
+    };
 
 }
