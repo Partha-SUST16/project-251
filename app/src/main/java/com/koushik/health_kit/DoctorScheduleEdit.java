@@ -34,7 +34,7 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
     private TextView dayNameText;
-    private Button addAppointmentbtn;
+    private Button addAppointmentbtn,refreshButton;
 
 
     private FirebaseAuth doctorAuth;
@@ -122,6 +122,15 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
             @Override
             public void onClick(View v) {
                 openDialog();
+            }
+        });
+
+        refreshButton = findViewById(R.id.refreshID);
+        refreshButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
             }
         });
 

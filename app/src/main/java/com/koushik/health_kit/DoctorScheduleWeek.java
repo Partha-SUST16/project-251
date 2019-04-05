@@ -240,8 +240,8 @@ public class DoctorScheduleWeek extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),DoctorProfileFromPatient.class));
-            //super.onBackPressed();
+            //startActivity(new Intent(getApplicationContext(),DoctorProfileFromPatient.class));
+            super.onBackPressed();
         }
     }
 

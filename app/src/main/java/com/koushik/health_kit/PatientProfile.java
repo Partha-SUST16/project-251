@@ -125,13 +125,13 @@ public class PatientProfile extends AppCompatActivity {
                     String myphone = dataSnapshot.child("phone").getValue().toString();
                     String myemail = dataSnapshot.child("email").getValue().toString();
 
-                    patientname.setText("Name:\t"+myname);
-                    patientage.setText("Age:\t"+myage);
-                    patientblood.setText("Blood Group:\t"+myblood);
-                    patientgender.setText("Gender:\t"+mygender);
-                    patientarea.setText("Area:\t"+myarea);
-                    patientphone.setText("Phone No:\t"+myphone);
-                    patientemail.setText("Email Address:\t"+myemail);
+                    patientname.setText("  Name:  "+myname);
+                    patientage.setText("  Age:  "+myage);
+                    patientblood.setText("  Blood Group:  "+myblood);
+                    patientgender.setText("  Gender:  "+mygender);
+                    patientarea.setText("  Area:  "+myarea);
+                    patientphone.setText("  Phone No:  "+myphone);
+                    patientemail.setText("  Email Address:  "+myemail);
 
                 }
             }

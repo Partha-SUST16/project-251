@@ -12,6 +12,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +46,7 @@ public class DoctorScheduleCheck extends AppCompatActivity {
     private RecyclerView recyclerView;
     List<DoctorScheduleEditCardview> patientList;
     DoctorScheduleCheckCardviewadapter adapter;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,14 @@ public class DoctorScheduleCheck extends AppCompatActivity {
         dayNameText.setText(dayName);
         Day = dayName;
 
+        button = findViewById(R.id.refreshPatient);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
         doctorReference = FirebaseDatabase.getInstance().getReference().child("Doctors").child(doctorUID);
 
 
@@ -183,8 +194,8 @@ public class DoctorScheduleCheck extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),DoctorProfileFromPatient.class));
-            //super.onBackPressed();
+            //startActivity(new Intent(getApplicationContext(),DoctorProfileFromPatient.class));
+            super.onBackPressed();
         }
     }
 }

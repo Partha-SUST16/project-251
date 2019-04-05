@@ -25,6 +25,18 @@
             android:text="Saturday"
             android:id="@+id/DaynameId"
             />
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:text="Refresh"
+            android:id="@+id/refreshPatient"
+            />
+
         <android.support.v7.widget.RecyclerView
             android:layout_marginTop="5dp"
             android:id="@+id/recyclerViewId"

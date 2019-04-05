@@ -11,112 +11,168 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="20dp"
+
             >
 
-            <ImageView
-                android:src="@drawable/ic_account_circle_coloured_24dp"
-                android:id="@+id/patientProfilepicId"
-                android:layout_marginTop="30dp"
-                android:layout_width="200dp"
+            <LinearLayout
+                android:id="@+id/upperSection"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
-                />
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/colorPrimaryDark"
+                >
+                <TextView
+                    android:id="@+id/patientName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Name"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    />
 
-            <TextView
-                android:id="@+id/patientName"
+            </LinearLayout>
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_gravity="left"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:hint="Name"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                >
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/frame"
+                    >
 
-            <TextView
-                android:id="@+id/patientAge"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Age"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
+                    <ImageView
+                        android:id="@+id/patientProfilepicId"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="120dp"
+                        android:src="@drawable/ic_account_circle_black_24dp" />
 
-            <TextView
-                android:id="@+id/patientGender"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Gender"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
-            <TextView
-                android:id="@+id/patientBlood"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Blood Group"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
-            <TextView
-                android:id="@+id/patientArea"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Area"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
-            <TextView
-                android:id="@+id/patientPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:hint="Phone No"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
-            <TextView
-                android:id="@+id/patientEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:gravity="center_horizontal"
-                android:layout_gravity="left"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="40dp"
-                android:hint="Email"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                />
+                </FrameLayout>
 
 
-        </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/upperSection"
+                android:id="@+id/downSection">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="20dp"
+                    >
+
+
+
+                    <TextView
+                        android:drawableLeft="@drawable/ic_age_primary"
+
+                        android:id="@+id/patientAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="80dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="  Age"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+
+                    <TextView
+                        android:drawableLeft="@drawable/ic_gender_primary"
+
+                        android:id="@+id/patientGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="  Gender"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+                    <TextView
+                        android:drawableLeft="@drawable/ic_blood_primary"
+
+                        android:id="@+id/patientBlood"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="  Blood Group"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+                    <TextView
+                        android:drawableLeft="@drawable/ic_home_primary"
+
+                        android:id="@+id/patientArea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="  Area"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+                    <TextView
+                        android:drawableLeft="@drawable/ic_phone_primary"
+
+                        android:id="@+id/patientPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="  Phone No"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+                    <TextView
+                        android:drawableLeft="@drawable/ic_email_primary"
+
+                        android:id="@+id/patientEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:gravity="center"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="40dp"
+                        android:text="  Email"
+                        android:textStyle="bold"
+                        android:textColor="@color/colortextLight"
+                        />
+
+
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
     </ScrollView>
 
     <android.support.design.widget.NavigationView

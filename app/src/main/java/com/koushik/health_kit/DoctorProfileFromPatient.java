@@ -210,8 +210,8 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
         }
         else{
-            startActivity(new Intent(getApplicationContext(),SearchDoctor.class));
-            //super.onBackPressed();
+           // startActivity(new Intent(getApplicationContext(),SearchDoctor.class));
+            super.onBackPressed();
         }
     }
 

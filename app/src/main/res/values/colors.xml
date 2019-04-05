@@ -5,7 +5,7 @@
     <color name="colorAccent">#000000</color>
     <color name="colorLight">#dcdada</color>
 
-
+<color name="colortextLight">#949393</color>
     <string-array name="colors" translatable="false">
         <item>#99cc00</item>
         <item>#aa66cc</item>
