@@ -36,7 +36,7 @@ public class PatientProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_patient_profile);
+        setContentView(R.layout.layout_patient_profile);
         drawerLayout = (DrawerLayout) findViewById(R.id.ppDrawerId);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.Open,R.string.Close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -59,6 +59,8 @@ public class PatientProfile extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
@@ -89,6 +91,7 @@ public class PatientProfile extends AppCompatActivity {
                 }
                 else if(id == R.id.recentButtonId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
@@ -125,13 +128,13 @@ public class PatientProfile extends AppCompatActivity {
                     String myphone = dataSnapshot.child("phone").getValue().toString();
                     String myemail = dataSnapshot.child("email").getValue().toString();
 
-                    patientname.setText("  Name:  "+myname);
-                    patientage.setText("  Age:  "+myage);
-                    patientblood.setText("  Blood Group:  "+myblood);
-                    patientgender.setText("  Gender:  "+mygender);
-                    patientarea.setText("  Area:  "+myarea);
-                    patientphone.setText("  Phone No:  "+myphone);
-                    patientemail.setText("  Email Address:  "+myemail);
+                    patientname.setText(myname);
+                    patientage.setText(myage);
+                    patientblood.setText(myblood);
+                    patientgender.setText(mygender);
+                    patientarea.setText(myarea);
+                    patientphone.setText(myphone);
+                    patientemail.setText(myemail);
 
                 }
             }

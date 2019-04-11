@@ -17,7 +17,10 @@
         android:roundIcon="@drawable/health_kit_mipmap"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecentDoctors"></activity>
+        <activity android:name=".messageListDoctor"></activity>
+        <activity android:name=".ID_Preview" />
+        <activity android:name=".Message_View" />
+        <activity android:name=".RecentDoctors" />
 
         <meta-data
             android:name="com.google.android.gms.version"

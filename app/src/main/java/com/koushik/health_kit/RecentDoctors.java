@@ -191,11 +191,11 @@ public class RecentDoctors extends AppCompatActivity {
             //doctorList.clear();
             if (dataSnapshot.exists()) {
                 //for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    /*if(snapshot.getKey().equals(key)) {*/
-                        Log.d("Main test ",dataSnapshot.getKey());
-                        SearchDoctorCardview doctor = dataSnapshot.getValue(SearchDoctorCardview.class);
-                        doctorList.add(doctor);
-                   // }
+                /*if(snapshot.getKey().equals(key)) {*/
+                Log.d("Main test ",dataSnapshot.getKey());
+                SearchDoctorCardview doctor = dataSnapshot.getValue(SearchDoctorCardview.class);
+                doctorList.add(doctor);
+                // }
                 //}
                 adapter.notifyDataSetChanged();
             }

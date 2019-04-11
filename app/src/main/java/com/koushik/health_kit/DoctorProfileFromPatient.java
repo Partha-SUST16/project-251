@@ -27,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class DoctorProfileFromPatient extends AppCompatActivity {
 
     private TextView doctorname,doctorage,doctorarea,doctorcatagory,doctoremail,doctorgender,doctorphone,doctorworkplace,doctordegree;
-
+    private TextView doctormessage;
     private static String TAG = "DoctorProfileFromPatient";
     private DatabaseReference doctorReference;
 
@@ -41,7 +41,7 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_profile_from_patient);
+        setContentView(R.layout.layout_doctor_profile_from_patient);
 
 
         drawerLayout = (DrawerLayout) findViewById(R.id.ppDrawerId);
@@ -92,10 +92,14 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
+                   // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
@@ -117,7 +121,7 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
         doctoremail = (TextView) findViewById(R.id.doctorEmailId);
         doctorworkplace = (TextView) findViewById(R.id.doctorWorkplaceId);
         doctordegree = (TextView) findViewById(R.id.doctorDegreeId);
-
+        doctormessage = (TextView) findViewById(R.id.message_doctor);
 
         Bundle bundle = getIntent().getExtras();
         if(bundle==null)
@@ -145,6 +149,17 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
             }
         });
 
+        doctormessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DoctorProfileFromPatient.this,Message_View.class);
+                i.putExtra("doctorname",doctorname.getText().toString().trim());
+                i.putExtra("doctoruid",DoctorUID);
+                i.putExtra("flag",0);
+                startActivity(i);
+            }
+        });
+
 
     }
 
@@ -169,15 +184,15 @@ public class DoctorProfileFromPatient extends AppCompatActivity {
                     String myworkplace = snapshot.child("workplace").getValue().toString();
                     String mydegree = snapshot.child("degree").getValue().toString();
 
-                    doctorname.setText("Name:\t\t"+myname);
-                    doctorage.setText("Age:\t\t"+myage);
-                    doctorcatagory.setText("Catagory:\t\t"+mycatagory);
-                    doctorgender.setText("Gender:\t\t"+mygender);
-                    doctorarea.setText("Area:\t\t"+myarea);
-                    doctorphone.setText("Phone No:\t\t"+myphone);
-                    doctoremail.setText("Email Address:\t\t"+myemail);
-                    doctorworkplace.setText("Workplaces:\t\t"+myworkplace);
-                    doctordegree.setText("Degrees:\t\t"+mydegree);
+                    doctorname.setText(myname);
+                    doctorage.setText(myage);
+                    doctorcatagory.setText(mycatagory);
+                    doctorgender.setText(mygender);
+                    doctorarea.setText(myarea);
+                    doctorphone.setText(myphone);
+                    doctoremail.setText(myemail);
+                    doctorworkplace.setText(myworkplace);
+                    doctordegree.setText(mydegree);
 
                     Log.d(TAG, "Current Data: "+myname);
                     Log.d(TAG, "Current Data: "+myage);

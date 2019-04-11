@@ -69,6 +69,8 @@ public class MyPrescription extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
+                   // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
@@ -95,11 +97,15 @@ public class MyPrescription extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
-                    startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
+                     startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
                 return true;

@@ -81,6 +81,8 @@ public class DoctorLogin extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;

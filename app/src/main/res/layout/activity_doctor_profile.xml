@@ -58,14 +58,13 @@
                 android:id="@+id/doctorAge"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:gravity="center"
                 android:layout_gravity="left"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
+                android:gravity="center"
                 android:hint="Age:"
-                android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/doctorGender"

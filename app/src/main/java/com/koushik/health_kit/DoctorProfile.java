@@ -33,7 +33,7 @@ public class DoctorProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_profile);
+        setContentView(R.layout.layout_doctor_profile);
         drawerLayout = (DrawerLayout) findViewById(R.id.dpDrawerId);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.Open,R.string.Close);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -65,10 +65,15 @@ public class DoctorProfile extends AppCompatActivity {
                     finish();
                     doctorAuth.signOut();
                 }
+                else if(id == R.id.chatDoctor)
+                {
+                    //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
+                }
                 else if(id == R.id.menuEmergencybtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
             }
@@ -106,15 +111,15 @@ public class DoctorProfile extends AppCompatActivity {
                     String myworkplace = dataSnapshot.child("workplace").getValue().toString();
                     String mydegree = dataSnapshot.child("degree").getValue().toString();
 
-                    doctorname.setText("Name:\t\t"+myname);
-                    doctorage.setText("Age:\t\t"+myage);
-                    doctorcatagory.setText("Catagory:\t\t"+mycatagory);
-                    doctorgender.setText("Gender:\t\t"+mygender);
-                    doctorarea.setText("Area:\t\t"+myarea);
-                    doctorphone.setText("Phone No:\t\t"+myphone);
-                    doctoremail.setText("Email Address:\t\t"+myemail);
-                    doctorworkplace.setText("Workplaces:\t\t"+myworkplace);
-                    doctordegree.setText("Degrees:\t\t"+mydegree);
+                    doctorname.setText(myname);
+                    doctorage.setText(myage);
+                    doctorcatagory.setText(mycatagory);
+                    doctorgender.setText(mygender);
+                    doctorarea.setText(myarea);
+                    doctorphone.setText(myphone);
+                    doctoremail.setText(myemail);
+                    doctorworkplace.setText(myworkplace);
+                    doctordegree.setText(mydegree);
 
                 }
             }

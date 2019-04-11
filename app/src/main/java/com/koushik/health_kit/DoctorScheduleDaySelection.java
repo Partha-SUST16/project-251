@@ -50,13 +50,13 @@ public class DoctorScheduleDaySelection extends AppCompatActivity {
                 int id = item.getItemId();
                 if(id==R.id.menuReservationScheduleId)
                 {
-                    Toast.makeText(DoctorScheduleDaySelection.this,"Schedule Clicked",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DoctorScheduleDaySelection.this,"Schedule Clicked",Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(getApplicationContext(),DoctorScheduleDaySelection.class);
                     startActivity(intent2);
                 }
                 else if(id==R.id.menuAboutustnId)
                 {
-                    Toast.makeText(DoctorScheduleDaySelection.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DoctorScheduleDaySelection.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),AboutUs.class));
                 }
                 else if(id==R.id.menuLogoutbtnId)
@@ -67,8 +67,14 @@ public class DoctorScheduleDaySelection extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
-                    Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
-                    //startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                    //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
+                }
+                else if(id == R.id.chatDoctor)
+                {
+                    // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
+                    startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
                 }
                 return true;
             }

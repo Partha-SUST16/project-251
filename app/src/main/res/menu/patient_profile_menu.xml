@@ -4,27 +4,27 @@
     <item
     android:id="@+id/menuEmergencybtnId"
     android:title="Emergency"
-    android:icon="@drawable/ic_account_circle_coloured_24dp">
+    android:icon="@drawable/ic_place_black">
 
 </item>
     <item
         android:id="@+id/recentButtonId"
         android:title="Recent Doctors"
-        android:icon="@drawable/ic_account_circle_coloured_24dp">
+        android:icon="@drawable/ic_recent_black">
 
     </item>
 
     <item
         android:id="@+id/menuPrescriptionbtnId"
         android:title="My Prescriptions"
-        android:icon="@drawable/ic_account_circle_coloured_24dp">
+        android:icon="@drawable/ic_prescription_black">
 
     </item>
 
     <item
         android:id="@+id/menuSearchbtnId"
         android:title="Search Doctor"
-        android:icon="@drawable/ic_account_circle_coloured_24dp">
+        android:icon="@drawable/ic_search_black">
     </item>
     <item
         android:id="@+id/menuBMIbtnId"

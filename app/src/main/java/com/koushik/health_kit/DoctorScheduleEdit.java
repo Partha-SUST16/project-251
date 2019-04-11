@@ -67,23 +67,30 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
 
                 if(id==R.id.menuReservationScheduleId)
                 {
-                    Toast.makeText(DoctorScheduleEdit.this,"Schedule Clicked",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DoctorScheduleEdit.this,"Schedule Clicked",Toast.LENGTH_SHORT).show();
                     Intent intent2 = new Intent(getApplicationContext(),DoctorScheduleDaySelection.class);
                     startActivity(intent2);
                 }
                 else if(id==R.id.menuAboutustnId)
                 {
-                    Toast.makeText(DoctorScheduleEdit.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DoctorScheduleEdit.this,"About Us CLICKED",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),AboutUs.class));
                 }
                 else if(id==R.id.menuLogoutbtnId)
                 {
-                    Toast.makeText(DoctorScheduleEdit.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DoctorScheduleEdit.this,"Log Out Clicked",Toast.LENGTH_SHORT).show();
                     finish();
                     doctorAuth.signOut();
                 }
+                else if(id == R.id.chatDoctor)
+                {
+                   // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
+                    startActivity(new Intent(getApplicationContext(),messageListDoctor.class));
+                }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"We will implement it soon",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 return true;
@@ -266,7 +273,6 @@ public class DoctorScheduleEdit extends AppCompatActivity implements ScheduleDia
         {
             distributeTime(place,start,end,patientNo);
             Log.d(TAG, "applyText: "+place+" "+start+" "+end+" "+patientNo);
-
         }
 
         /*

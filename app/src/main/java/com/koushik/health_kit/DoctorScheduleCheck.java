@@ -75,6 +75,8 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                 }
                 else if(id == R.id.menuPrescriptionbtnId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),MyPrescriptionList.class));
                 }
                 else if(id == R.id.menuSearchbtnId)
@@ -101,10 +103,14 @@ public class DoctorScheduleCheck extends AppCompatActivity {
                 }
                 else if(id == R.id.menuEmergencybtnId)
                 {
+                   // Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),EmergencyMapsActivity.class));
                 }
                 else if(id == R.id.recentButtonId)
                 {
+                    //Toast.makeText(getApplicationContext(),"See you Soon!!",Toast.LENGTH_SHORT).show();
+
                     startActivity(new Intent(getApplicationContext(),RecentDoctors.class));
                 }
 
